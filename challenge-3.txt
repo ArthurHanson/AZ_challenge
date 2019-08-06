@@ -1,0 +1,12 @@
+Challenge 3:
+Given the information from the input file where the first field is the index, the second field is a reference to the next index and the third field is the encoded value; your goal, should you choose to accept it, is to decipher the message. 
+
+The encoded values are the hexadecimal representation of the ascii characters that make up the secret message. The first line starts the message.  You can find the next value by looking at the reference field as it points to the next record. The message is terminated when the next reference value is equal to '000'.
+
+Input Sample:
+001:003:48
+002:000:00
+003:002:69
+
+Output Sample:
+Hi

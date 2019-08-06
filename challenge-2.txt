@@ -1,0 +1,12 @@
+Challenge 2: 
+Write a program that converts a hexadecimal (base 16) number to decimal number (base 10). 
+
+The program must accept as its first argument a path to an input filename. Each line in this input file contains a hex number. The hex number does not have the leading 'Ox' and all alpha characters (a through f) are lowercase. Do not use any built in features of your selected programming language to directly convert from base 16 to base 10.
+
+Input Sample:
+9f
+11
+
+Output Sample:
+159
+17
