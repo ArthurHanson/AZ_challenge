@@ -20,19 +20,21 @@ import sys
 
 
 def usage():
-	print("usage: python c2.py input-2.txt")
+	print("usage: python3 c2.py input-2.txt")
 	sys.exit(1)
 
 
-def hex_to_dec(line):
-	_hex_chars = "0123456789abcdef"
+def hex_to_dec(line: str) -> int:
+	"""Return base 10 number given a base 16 number formatted as a string."""
+	hex_chars = "0123456789abcdef"
 	val = 0
-	str = line.lower()
-	if not all([var in _hex_chars for var in str]):
+	str_ = line.lower()  # double-check lowercase...
+	if not all([var in hex_chars for var in str_]):  # make sure it's valid base 16
 		pass
-	for i, char in enumerate(reversed(str)):
-		val += _hex_chars.find(char) * 16 ** i
+	for i, char in enumerate(reversed(str_)):
+		val += hex_chars.find(char) * 16 ** i
 	return val
+
 
 if __name__ == "__main__":
 	if len(sys.argv) != 2:

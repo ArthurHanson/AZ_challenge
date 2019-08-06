@@ -22,17 +22,20 @@ import random
 
 
 def usage():
-	print("usage: python c3.py input-3.txt")
+	print("usage: python3 c3.py input-3.txt")
 	sys.exit(1)
 
 
 class AsciiCipher:
+	"""Encrypts & decrypts per the instructions provided in the challenge."""
 	def __init__(self):
 		self.plain_text = ""
 		self.cipher_text = ""
 
+	# This function isn't required to solve the challenge. I added it to generate additional cipher texts for testing
 	def encrypt(self, plain_text):
-		order = [x for x in range(2, len(plain_text)+2)]
+		"""Return cipher text given plain text."""
+		order = [x for x in range(2, len(plain_text)+1)]
 		random.shuffle(order)
 		encoded = ""
 		msg_dict = {
@@ -44,12 +47,14 @@ class AsciiCipher:
 			else:
 				msg_dict[order[i-1]] = (order[i], hex(ord(plain_text[i])))
 
-		for i in sorted (msg_dict.keys()):
+		for i in sorted(msg_dict.keys()):
 			encoded += str(i).zfill(3) + ":" + str(msg_dict[i][0]).zfill(3) + ":" + str(msg_dict[i][1]) + "\n"
-		self.cipher_text = encoded
-		return encoded
+		self.cipher_text = encoded.rstrip()
+		return self.cipher_text
 
+	# This is the only function required to solve the challenge
 	def decrypt(self, cipher_text):
+		"""Return plain text given cipher text."""
 		msg_end = False
 		decoded = ""
 		idx = 0
@@ -78,6 +83,3 @@ if __name__ == "__main__":
 
 	ascii_cipher = AsciiCipher()
 	print(ascii_cipher.decrypt(text))
-
-
-

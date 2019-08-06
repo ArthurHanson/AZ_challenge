@@ -21,14 +21,14 @@ import sys
 
 
 def usage():
-	print("usage: python c1.py input-1.txt")
+	print("usage: python3 c1.py input-1.txt")
 	sys.exit(1)
 
 
-def sequence_finder(line: str) -> str:
+def sequence_finder(int_string: str) -> str:
 	"""Returns a string denoting consecutive number ranges given a sequence of integers as a string."""
 	results = []
-	values = list(map(int, line.strip().split()))  # cast to int and split on default " "
+	values = list(map(int, int_string.strip().split()))  # cast to int and split on default " "
 	last = values[0]
 	start = last
 	for i in range(1, len(values)):
@@ -51,6 +51,7 @@ def sequence_finder(line: str) -> str:
 		str_out += space + str(result[0]) + "-" + str(result[1])
 		space = " "
 	return str_out
+
 
 if __name__ == "__main__":
 	if len(sys.argv) != 2:

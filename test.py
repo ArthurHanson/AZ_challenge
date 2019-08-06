@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import unittest
 import c1
 import c2
@@ -96,7 +97,6 @@ class TestC2(unittest.TestCase):
         input_ = "ffffffd51"
         expected = int("ffffffd51", 16)
         output = c2.hex_to_dec(input_)
-        print(output)
         self.assertEqual(output, expected)
 
 
@@ -108,7 +108,27 @@ class TestC3(unittest.TestCase):
         text = "No More Secrets."
         ascii_cipher = c3.AsciiCipher()
         cipher_text = ascii_cipher.encrypt(text)
-        print(cipher_text)
+        # print(cipher_text)
+        output = ascii_cipher.decrypt(cipher_text)
+        self.assertEqual(output, text)
+    def test_2(self):
+        """
+        Additional test case
+        """
+        text = "test"
+        ascii_cipher = c3.AsciiCipher()
+        cipher_text = ascii_cipher.encrypt(text)
+        # print(cipher_text)
+        output = ascii_cipher.decrypt(cipher_text)
+        self.assertEqual(output, text)
+    def test_2(self):
+        """
+        Punctuation
+        """
+        text = "This is a more complicated string with punctuation! Does it work?"
+        ascii_cipher = c3.AsciiCipher()
+        cipher_text = ascii_cipher.encrypt(text)
+        # print(cipher_text)
         output = ascii_cipher.decrypt(cipher_text)
         self.assertEqual(output, text)
 
